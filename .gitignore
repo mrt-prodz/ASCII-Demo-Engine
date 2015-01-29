@@ -1,0 +1,13 @@
+*.cbp
+*.depend
+*.layout
+*.log
+*.DS_Store
+*._.DS_Store
+*.o
+*.exe
+*.out
+*.svg
+_backup/*
+bin/*
+obj/*
