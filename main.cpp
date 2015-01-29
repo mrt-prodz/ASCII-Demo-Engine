@@ -43,8 +43,8 @@ int _tmain(int argc, _TCHAR* argv[]) {
     Effects::Deform flower(&engine, "assets/sprites/checker2", 20.0f, Effects::Deform::FLOWER);
     Effects::Deform spider(&engine, "assets/sprites/checker2", 20.0f, Effects::Deform::SPIDER);
     Effects::Deform plasma(&engine, "assets/sprites/checker2", 20.0f, Effects::Deform::PLASMA);
-    // Title
-    Composites::Text txt_end(&engine, "assets/fonts/chunky", "to be continued");
+    // In progress
+    Composites::Text txt_end(&engine, "assets/fonts/chunky", "in progress..");
 
     // ------------------------------------------------------------------------------------------
     // Console Engine effects sequencer (FX struct: &effect, timeStart, timeDuration)
