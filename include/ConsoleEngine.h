@@ -43,31 +43,11 @@ class ConsoleEngine
         bool running_; // Flag to stop main loop
         bool paused_; // Flag to pause the loop
         double time_elapsed_;
-
-        // Game Loop ---------------------------------------
-        // http://www.koonsolo.com/news/dewitters-gameloop/
-        // Constant Game Speed with Maximum FPS
-        //static const int kTicksPerSecond = 30;
-        //static const int kSkipTicks = 1000 / kTicksPerSecond;
-        //static const int kMaxFrameSkip = 5;
-        //DWORD next_tick_;
         DWORD start_tick_;
         DWORD paused_tick_;
-        //int loops_;
         float old_time_; // Store old time here
         float new_time_; // Store new time here
-        // -------------------------------------------------
-
-        // Asset Manager pointer (so we can access all assets from any effect and derived classes
-        AssetManager *asset_manager_ = 0;
-        // Set elapsed time (called with each Update)
-        void SetTimeElapsed();
-        // Display or hide console cursor
-        void DisplayCursor(const bool value);
-        // Clean up memory
-        void Cleanup();
-
-    public:
+        AssetManager *asset_manager_ = 0; // Asset Manager pointer
         // FX struct for the ConsoleEngine sequencer
         struct FX {
             // Pointer to Effect class
@@ -76,6 +56,14 @@ class ConsoleEngine
             double time_start, time_duration;
         };
 
+        // Set elapsed time (called with each Update)
+        void SetTimeElapsed();
+        // Display or hide console cursor
+        void DisplayCursor(const bool value);
+        // Clean up memory
+        void Cleanup();
+
+    public:
         // Constructor
         ConsoleEngine();
         // Destructor
@@ -101,7 +89,7 @@ class ConsoleEngine
         // Clear buffer
         void Clear(CHAR letter = ' ', WORD color = 0);
         // Add effect to sequencer
-        void AddEffect(FX fx) { effects_.push_back(fx); }
+        void AddEffect(Effects::Effect *fx, double time_start, double time_duration);
         // Return if loop is running
         bool running() const { return running_; }
         // Return if loop is paused

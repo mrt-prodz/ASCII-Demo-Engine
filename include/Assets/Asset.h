@@ -48,7 +48,7 @@ namespace Assets
             }
 
             // File parser - derived class should override this
-            virtual bool Parse(std::string &content) { return false; };
+            virtual bool Parse(std::string &content) { (void)content; return false; };
             // Return path string
             const std::string *getPath() { return &path_; }
             // Return parse status

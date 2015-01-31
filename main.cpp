@@ -1,8 +1,5 @@
 #include "ConsoleEngine.h"
-#include "Composites/Image.h"
 #include "Composites/Text.h"
-#include "Composites/TextScroller.h"
-#include "Effects/Waterfall.h"
 #include "Effects/Starfield.h"
 #include "Effects/Deform.h"
 
@@ -20,7 +17,7 @@
 
 */
 
-int _tmain(int argc, _TCHAR* argv[]) {
+int _tmain() {
     // Create console window object
     ConsoleEngine engine;
 
@@ -50,18 +47,18 @@ int _tmain(int argc, _TCHAR* argv[]) {
     // Console Engine effects sequencer (FX struct: &effect, timeStart, timeDuration)
     // ------------------------------------------------------------------------------------------
     // Background starfield for logo, presents and title text
-    engine.AddEffect( (ConsoleEngine::FX){&logo_back, 0.0, 16.0} );
-    engine.AddEffect( (ConsoleEngine::FX){&txt_logo, 0.0, 16.0} );
-    engine.AddEffect( (ConsoleEngine::FX){&txt_presents, 4.0, 12.0} );
-    engine.AddEffect( (ConsoleEngine::FX){&txt_title, 8.0, 8.0} );
+    engine.AddEffect(&logo_back, 0.0, 16.0);
+    engine.AddEffect(&txt_logo, 0.0, 16.0);
+    engine.AddEffect(&txt_presents, 4.0, 12.0);
+    engine.AddEffect(&txt_title, 8.0, 8.0);
     // Show effects
-    engine.AddEffect( (ConsoleEngine::FX){&plane, 16.0, 4.0} );
-    engine.AddEffect( (ConsoleEngine::FX){&tunnel, 20.0, 4.0} );
-    engine.AddEffect( (ConsoleEngine::FX){&flower, 24.0, 4.0} );
-    engine.AddEffect( (ConsoleEngine::FX){&spider, 28.0, 4.0} );
-    engine.AddEffect( (ConsoleEngine::FX){&plasma, 32.0, 4.0} );
+    engine.AddEffect(&plane, 16.0, 4.0);
+    engine.AddEffect(&tunnel, 20.0, 4.0);
+    engine.AddEffect(&flower, 24.0, 4.0);
+    engine.AddEffect(&spider, 28.0, 4.0);
+    engine.AddEffect(&plasma, 32.0, 4.0);
     // End text
-    engine.AddEffect( (ConsoleEngine::FX){&txt_end, 36.0, 8.0} );
+    engine.AddEffect(&txt_end, 36.0, 8.0);
 
     // ------------------------------------------------------------------------------------------
     // Main loop

@@ -84,7 +84,7 @@ namespace Assets
                         if (offset > content.size()) {
                             LOG->error("Error while parsing font file: %s", getPath()->c_str());
                             std::string parsedLetters;
-                            for (std::map<unsigned char, Letter>::iterator it=letters_.begin(); it!=letters_.end(); it++) {
+                            for (auto it=letters_.begin(); it!=letters_.end(); it++) {
                                 parsedLetters += it->second.letter;
                             }
                             LOG->info("Parsed letters: %d - %s", i, parsedLetters.c_str());
@@ -127,7 +127,7 @@ namespace Assets
 
             // Debugging
             void Debug() {
-                for (std::map<unsigned char, Letter>::iterator it=letters_.begin(); it!=letters_.end(); it++) {
+                for (auto it=letters_.begin(); it!=letters_.end(); it++) {
                     printf("%c\n", it->second.letter);
                     for (unsigned char y = 0; y < it->second.height; y++) {
                         for (unsigned char x = 0; x < it->second.width; x++) {

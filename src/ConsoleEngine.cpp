@@ -156,7 +156,6 @@ void ConsoleEngine::Update() {
     // Clear buffer
     Clear();
     // Cycle all effects and draw effect within time range (time_start and time_duration)
-    //std::vector<FX>::iterator it;
     for (auto it = effects_.begin(); it != effects_.end(); it++) {
         // If effect time start and time duration is in the current time elapsed frame draw effect
         if (it->time_start <= time_elapsed() && (it->time_start + it->time_duration) >= time_elapsed()) {
@@ -246,6 +245,13 @@ void ConsoleEngine::Clear(CHAR letter, WORD color) {
         console_buffer_[i].Char.AsciiChar = letter;
         console_buffer_[i].Attributes = color;
     }
+}
+
+// ----------------------------------------------------------------------------
+// Add effect to console engine sequencer
+// ----------------------------------------------------------------------------
+void ConsoleEngine::AddEffect(Effects::Effect *fx, double time_start, double time_duration) {
+    effects_.push_back( (FX){fx, time_start, time_duration} );
 }
 
 // ----------------------------------------------------------------------------

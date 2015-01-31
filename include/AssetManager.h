@@ -48,8 +48,6 @@ class AssetManager
             }
             // Check if asset hash already in stored assets
             unsigned long hashedPath = HashPath(path);
-
-            //std::unordered_map<unsigned long, Assets::Asset*>::const_iterator it = assets_.find(hashedPath);
             auto it = assets_.find(hashedPath);
             if (it != assets_.end()) {
                 LOG->info("Asset %s already stored", path);
@@ -72,7 +70,6 @@ class AssetManager
         // Get a pointer to an asset from stored map (using the hashed path)
         template <class T>
         T *Get(const char *path) {
-            //std::unordered_map<unsigned long, Assets::Asset*>::iterator it = assets_.find(HashPath(path));
             auto it = assets_.find(HashPath(path));
             if (it == assets_.end()) {
                 LOG->error("Asset Manager cannot find : %s", path);

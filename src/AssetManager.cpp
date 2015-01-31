@@ -37,7 +37,6 @@ bool AssetManager::FileExists(const char *path) {
 // ----------------------------------------------------------------------------
 void AssetManager::Cleanup() {
     // Clean up allocated assets
-    //for (std::unordered_map<unsigned long, Assets::Asset*>::const_iterator it = assets_.begin(); it != assets_.end(); ++it) {
     for (auto it = assets_.begin(); it != assets_.end(); ++it) {
         delete it->second;
     }
